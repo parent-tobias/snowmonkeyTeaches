@@ -15,9 +15,9 @@ if($_GET['pageno']){
 };
 
 $params = array(
-  'api_key'	 => '17136ae0b22d491a9ff97bc371aa8536',
-	'method'	 => 'flickr.interestingness.getList',
-	'format'	 => 'php_serial',
+  'api_key'	 => '[YOUR API KEY GOES HERE]',
+  'method'	 => 'flickr.interestingness.getList',
+  'format'	 => 'php_serial',
   'per_page' => '10',
   'page'     => $pageNo,
 );
