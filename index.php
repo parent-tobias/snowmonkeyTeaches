@@ -65,6 +65,31 @@ if ($rsp_obj['stat'] == 'ok'){
             per_page:   "<? echo $params['per-page'] ?>",
             page:       "<? echo $rsp_obj['photos']['page']+1; ?>"
           };
+          
+      // When the document has loaded, we can attach the listener to the button,
+      //  and set its processing
+      $(document).ready(function(){
+        var imagePane = $('.image-listing');
+        $('.next-set').on("click", function(){
+          // When the 'Get more photos' button is clicked, fetch the JSON feed,
+          //   parse it, and populate the image tags.
+          $.getJSON(flickrUrlRoot, flickrData, function(data){
+            // If we're here, we have a dataset. Parse it and populate.
+            _.each(data.photos.photo, function(photo){
+              // Create the image. The URL isn't given, but we can build it.
+              var thisImg = $("<img>").attr("src", "http://farm"+photo.farm+".staticflickr.com/"+photo.server+"/"+photo.id+"_"+photo.secret+"_s.jpg");
+              imagePane.append(thisImg);
+            });
+            // In addition to adding the images to the appropriate pane, we also
+            //  have to update the page count beside the 'Get more photos'
+            $(".page-count-status").text("Page "+flickrData.page+" of "+totalPages);
+            
+            // And also update the page number that will be passed to the API
+            flickrData.page = Number(flickrData.page)+1;
+          })
+        });
+      
+      });
     </script>
   </head>
   <body>
