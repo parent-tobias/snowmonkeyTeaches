@@ -85,7 +85,7 @@ if ($rsp_obj['stat'] == 'ok'){
             $(".page-count-status").text("Page "+flickrConfig.page+" of "+totalPages);
             
             // And also update the page number that will be passed to the API
-            flickrData.page = Number(flickrConfig.page)+1;
+            flickrConfig.page = Number(flickrConfig.page)+1;
           })
         });
       
