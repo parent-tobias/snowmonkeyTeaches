@@ -1,0 +1,24 @@
+body{
+  font-family: Arial, sans;
+  padding: 10px;
+}
+hgroup h1 {
+  font-size: 2em;
+}
+hgroup h2 {
+  font-size: 1.75em;
+}
+section>h1{
+  font-size: 1.75em;
+}
+ul {
+  list-style: circle;
+}
+.image-listing {
+  width: 880px;
+}
+img {
+  border: 1px dotted black;
+  padding: 5px;
+  margin-left: 1px;
+}
