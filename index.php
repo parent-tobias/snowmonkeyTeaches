@@ -87,13 +87,10 @@ if ($rsp_obj['stat'] == 'ok'){
     <?php }; ?>
     </div>
     <nav>
-    <?php if($rsp_obj['photos']['page'] != 1){ ?>
-      <a href="./index.php?pageno=<? echo $rsp_obj['photos']['page']-1; ?>"><<</a>
-    <? } ?>
-    Page <? echo $rsp_obj['photos']['page']; ?> of <? echo $rsp_obj['photos']['pages']; ?>
-    <?php if($rsp_obj['photos']['page'] != $rsp_obj['photos']['pages']){ ?>
-      <a href="./index.php?pageno=<? echo $rsp_obj['photos']['page']+1; ?>">>></a>
-    <? } ?>
+      <span class="page-count-status">Page <? echo $rsp_obj['photos']['page']; ?> of <? echo $rsp_obj['photos']['pages']; ?> 
+      <?php if($rsp_obj['photos']['page'] !== $rsp_obj['photos']['pages']){ ?>
+        <button class="next-set">Get more photos</button>
+      <? } ?>
     </nav>
   </body>
 </html>
